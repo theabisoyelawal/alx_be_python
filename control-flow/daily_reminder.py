@@ -5,24 +5,29 @@ task = input("Enter your task: ").strip()
 priority = input("Priority (high/medium/low): ").strip().lower()
 time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 
-# Process task based on priority using match-case
+# daily_reminder.py
+
+# Prompt user for task details
+task = input("Enter your task: ").strip()
+priority = input("Priority (high/medium/low): ").strip().lower()
+time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
+
+# Generate reminder based on priority and time sensitivity
 match priority:
     case "high":
-        reminder = f"'{task}' is a high priority task"
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a high priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a high priority task. Consider completing it when you have free time.")
     case "medium":
-        reminder = f"'{task}' is a medium priority task"
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a medium priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a medium priority task. Consider completing it when you have free time.")
     case "low":
-        reminder = f"'{task}' is a low priority task"
-    case _:  # Handles unexpected priority input
-        reminder = f"'{task}' has an unspecified priority"
-
-# Modify reminder if the task is time-bound
-if time_bound == "yes":
-    reminder += " that requires immediate attention today!"
-elif time_bound == "no":
-    reminder += ". Consider completing it when you have free time."
-else:
-    reminder += ". Time sensitivity not specified."
-
-# Print the final reminder
-print("\nReminder:", reminder)
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a low priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
+    case _:  # Handle unexpected priority input
+        print(f"'{task}' has an unspecified priority.")
