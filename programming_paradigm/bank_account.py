@@ -12,4 +12,7 @@ class BankAccount:
         return True
 
     def display_balance(self):
-        print(f"Current Balance: ${self.__account_balance}")
+    # Print integer if whole number, else float
+    balance = int(self.__account_balance) if self.__account_balance == int(self.__account_balance) else self.__account_balance
+    print(f"Current Balance: ${balance}")
+
