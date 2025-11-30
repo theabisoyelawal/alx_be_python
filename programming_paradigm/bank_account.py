@@ -11,5 +11,6 @@ class BankAccount:
         self.__account_balance -= amount
         return True
 
-    def display_balance(self):
-        print(f"Current Balance: ${int(self.__account_balance)}")
+   def display_balance(self):
+    # Always print two decimal places
+    print(f"Current Balance: ${self.__account_balance:.2f}")
