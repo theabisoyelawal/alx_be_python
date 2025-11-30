@@ -1,37 +1,36 @@
+# test_simple_calculator.py
+
 import unittest
 from simple_calculator import SimpleCalculator
 
 class TestSimpleCalculator(unittest.TestCase):
-    
+
     def setUp(self):
         self.calc = SimpleCalculator()
-    
+
     def test_addition(self):
         self.assertEqual(self.calc.add(2, 3), 5)
         self.assertEqual(self.calc.add(-1, 1), 0)
         self.assertEqual(self.calc.add(0, 0), 0)
         self.assertEqual(self.calc.add(-5, -3), -8)
-    
+
     def test_subtraction(self):
         self.assertEqual(self.calc.subtract(5, 3), 2)
         self.assertEqual(self.calc.subtract(0, 5), -5)
         self.assertEqual(self.calc.subtract(-2, -3), 1)
         self.assertEqual(self.calc.subtract(3, 3), 0)
-    
+
     def test_multiply(self):
-        # Ensure all results are tested as floats if needed
         self.assertEqual(self.calc.multiply(2, 3), 6)
         self.assertEqual(self.calc.multiply(-2, 3), -6)
         self.assertEqual(self.calc.multiply(0, 5), 0)
         self.assertEqual(self.calc.multiply(-2, -3), 6)
-        self.assertEqual(self.calc.multiply(2.5, 2), 5.0)  # extra float test
-    
+        self.assertEqual(self.calc.multiply(2.5, 2), 5.0)
+
     def test_divide(self):
-        # Normal division
         self.assertEqual(self.calc.divide(6, 3), 2.0)
         self.assertEqual(self.calc.divide(-6, 3), -2.0)
         self.assertEqual(self.calc.divide(5, 2), 2.5)
-        # Division by zero
         self.assertIsNone(self.calc.divide(5, 0))
 
 if __name__ == "__main__":

@@ -19,4 +19,4 @@ class SimpleCalculator:
         """Return the division of a by b. Returns None if b is zero."""
         if b == 0:
             return None
-        return a / b
+        return float(a) / float(b)
